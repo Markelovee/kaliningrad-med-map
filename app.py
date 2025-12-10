@@ -8,6 +8,61 @@ import matplotlib.cm as cm
 import matplotlib.colors as colors
 import matplotlib.pyplot as plt
 
+import streamlit as st
+
+LIGHT_CSS = """
+<style>
+/* светлая тема */
+.stApp {
+    background-color: #ffffff;
+    color: #111111;
+}
+
+/* сайдбар */
+section[data-testid="stSidebar"] {
+    background-color: #f5f5f5;
+    color: #111111;
+}
+
+/* заголовки */
+h1, h2, h3, h4 {
+    color: #111111;
+}
+
+/* таблицы */
+div[data-testid="stDataFrame"] {
+    background-color: #ffffff;
+}
+</style>
+"""
+
+DARK_CSS = """
+<style>
+/* тёмная тема */
+.stApp {
+    background-color: #111827;   /* тёмно-серый фон */
+    color: #e5e7eb;              /* светлый текст */
+}
+
+/* сайдбар */
+section[data-testid="stSidebar"] {
+    background-color: #020617;
+    color: #e5e7eb;
+}
+
+/* заголовки */
+h1, h2, h3, h4 {
+    color: #f9fafb;
+}
+
+/* таблицы */
+div[data-testid="stDataFrame"] {
+    background-color: #020617;
+}
+</style>
+"""
+
+
 # === Константы ===
 SVG_FILE = "map2.svg"          # твой шаблон карты
 NEUTRAL_FILL = "#eeeeee"       # цвет «заглушки» для фильтра top5/bottom5
@@ -323,18 +378,10 @@ with st.sidebar:
     )
 
 # Простейшее переключение фона
-if theme_choice == "Тёмная":
-    st.markdown(
-        """
-        <style>
-        body, .stApp {
-            background-color: #0E1117 !important;
-            color: #FAFAFA !important;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
+if theme == "Тёмная":
+    st.markdown(DARK_CSS, unsafe_allow_html=True)
+else:
+    st.markdown(LIGHT_CSS, unsafe_allow_html=True)
 
 st.title(
     "Визуализация медицинских параметров по административно-территориальным "

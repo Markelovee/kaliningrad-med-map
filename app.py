@@ -10,57 +10,48 @@ import matplotlib.pyplot as plt
 
 import streamlit as st
 
-LIGHT_CSS = """
-<style>
-/* светлая тема */
-.stApp {
-    background-color: #ffffff;
-    color: #111111;
-}
-
-/* сайдбар */
-section[data-testid="stSidebar"] {
-    background-color: #f5f5f5;
-    color: #111111;
-}
-
-/* заголовки */
-h1, h2, h3, h4 {
-    color: #111111;
-}
-
-/* таблицы */
-div[data-testid="stDataFrame"] {
-    background-color: #ffffff;
-}
-</style>
-"""
-
 DARK_CSS = """
 <style>
-/* тёмная тема */
-.stApp {
-    background-color: #111827;   /* тёмно-серый фон */
-    color: #e5e7eb;              /* светлый текст */
+/* Основная область приложения */
+[data-testid="stAppViewContainer"] {
+    background-color: #111111 !important;
+    color: #f5f5f5 !important;
 }
 
-/* сайдбар */
-section[data-testid="stSidebar"] {
-    background-color: #020617;
-    color: #e5e7eb;
+/* Боковая панель */
+[data-testid="stSidebar"] {
+    background-color: #141414 !important;
+    color: #f5f5f5 !important;
 }
 
-/* заголовки */
-h1, h2, h3, h4 {
-    color: #f9fafb;
-}
-
-/* таблицы */
-div[data-testid="stDataFrame"] {
-    background-color: #020617;
+/* Заголовки и обычный текст */
+h1, h2, h3, h4, h5, h6, p, span, label {
+    color: #f5f5f5 !important;
 }
 </style>
 """
+
+LIGHT_CSS = """
+<style>
+/* Основная область приложения */
+[data-testid="stAppViewContainer"] {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+}
+
+/* Боковая панель */
+[data-testid="stSidebar"] {
+    background-color: #f5f5f5 !important;
+    color: #111111 !important;
+}
+
+/* Заголовки и обычный текст */
+h1, h2, h3, h4, h5, h6, p, span, label {
+    color: #111111 !important;
+}
+</style>
+"""
+
 
 
 # === Константы ===

@@ -8,150 +8,6 @@ import matplotlib.cm as cm
 import matplotlib.colors as colors
 import matplotlib.pyplot as plt
 
-import streamlit as st
-
-DARK_CSS = """
-<style>
-/* Основная область приложения */
-[data-testid="stAppViewContainer"] {
-    background-color: #111111 !important;
-    color: #f5f5f5 !important;
-}
-
-/* Боковая панель */
-[data-testid="stSidebar"] {
-    background-color: #141414 !important;
-    color: #f5f5f5 !important;
-}
-
-/* Заголовки и обычный текст */
-h1, h2, h3, h4, h5, h6, p, span, label {
-    color: #f5f5f5 !important;
-}
-</style>
-"""
-
-LIGHT_CSS = """
-<style>
-/* Основная область приложения */
-[data-testid="stAppViewContainer"] {
-    background-color: #ffffff !important;
-    color: #111111 !important;
-}
-
-/* Боковая панель */
-[data-testid="stSidebar"] {
-    background-color: #f5f5f5 !important;
-    color: #111111 !important;
-}
-
-/* Заголовки и обычный текст */
-h1, h2, h3, h4, h5, h6, p, span, label {
-    color: #111111 !important;
-}
-
-/* Кнопки: st.button, st.download_button и др. */
-.stButton > button, .stDownloadButton > button {
-    background-color: #f0f0f0 !important;
-    color: #111111 !important;
-    border: 1px solid #cccccc !important;
-    border-radius: 4px !important;
-}
-.stButton > button:hover, .stDownloadButton > button:hover {
-    background-color: #e0e0e0 !important;
-}
-
-/* Зона загрузки файлов */
-[data-testid="stFileUploaderDropzone"] {
-    background-color: #ffffff !important;
-    border: 1px dashed #999999 !important;
-    color: #111111 !important;
-}
-[data-testid="stFileUploaderDropzone"] * {
-    color: #111111 !important;
-}
-
-/* --- ДОПОЛНИТЕЛЬНО: делаем светлыми инпуты и таблицу --- */
-
-/* Обычные поля ввода (текст, числа, select и т.п.) */
-input, textarea, select {
-    background-color: #ffffff !important;
-    color: #111111 !important;
-}
-
-/* Контейнер таблицы st.data_editor / st.dataframe */
-[data-testid="stDataFrame"] {
-    background-color: #ffffff !important;
-    color: #111111 !important;
-}
-
-/* Границы таблицы st.data_editor / st.dataframe */
-[data-testid="stDataFrame"] table {
-    border-collapse: collapse !important;
-}
-
-[data-testid="stDataFrame"] th,
-[data-testid="stDataFrame"] td {
-    border: 1px solid #dddddd !important;
-}
-
-/* Кнопка "Browse files" в загрузчике */
-[data-testid="stFileUploader"] button {
-    background-color: #f0f0f0 !important;
-    color: #111111 !important;
-    border: 1px solid #999999 !important;
-    border-radius: 4px !important;
-}
-[data-testid="stFileUploader"] button:hover {
-    background-color: #e0e0e0 !important;
-}
-
-
-/* На всякий случай — фон и текст ещё раз для ясности */
-[data-testid="stDataFrame"] td {
-    background-color: #ffffff !important;
-    color: #111111 !important;
-}
-/* Светлая таблица st.data_editor / st.dataframe */
-[data-testid="stDataFrame"] {
-    background-color: #ffffff !important;
-    color: #111111 !important;
-}
-
-/* Само табличное полотно */
-[data-testid="stDataFrame"] table {
-    background-color: #ffffff !important;
-    color: #111111 !important;
-    border-collapse: collapse !important;
-}
-
-/* Заголовок таблицы */
-[data-testid="stDataFrame"] thead tr {
-    background-color: #f0f0f0 !important;
-}
-[data-testid="stDataFrame"] th {
-    border: 1px solid #dddddd !important;
-    color: #111111 !important;
-}
-
-/* Строки таблицы */
-[data-testid="stDataFrame"] tbody tr {
-    background-color: #ffffff !important;
-}
-[data-testid="stDataFrame"] tbody tr:nth-child(even) {
-    background-color: #fafafa !important;  /* лёгкая полосатость */
-}
-
-[data-testid="stDataFrame"] td {
-    border: 1px solid #dddddd !important;
-    color: #111111 !important;
-}
-</style>
-"""
-
-
-
-
 # === Константы ===
 SVG_FILE = "map2.svg"          # твой шаблон карты
 NEUTRAL_FILL = "#eeeeee"       # цвет «заглушки» для фильтра top5/bottom5
@@ -459,19 +315,26 @@ st.set_page_config(page_title="Карта Калининградской обл�
 with st.sidebar:
     st.header("Настройки")
 
-    theme = st.radio(
+    # Тема
+    theme_choice = st.radio(
         "Тема интерфейса",
         ["Светлая", "Тёмная"],
         index=0,
-        key="ui_theme",
     )
 
-
 # Простейшее переключение фона
-if theme == "Тёмная":
-    st.markdown(DARK_CSS, unsafe_allow_html=True)
-else:
-    st.markdown(LIGHT_CSS, unsafe_allow_html=True)
+if theme_choice == "Тёмная":
+    st.markdown(
+        """
+        <style>
+        body, .stApp {
+            background-color: #0E1117 !important;
+            color: #FAFAFA !important;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
 
 st.title(
     "Визуализация медицинских параметров по административно-территориальным "

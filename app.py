@@ -79,11 +79,12 @@ input, textarea, select {
     color: #111111 !important;
 }
 
-/* Таблица st.data_editor / st.dataframe */
-[data-testid="stDataFrame"], [data-testid="stDataFrame"] div {
+/* Контейнер таблицы st.data_editor / st.dataframe */
+[data-testid="stDataFrame"] {
     background-color: #ffffff !important;
     color: #111111 !important;
 }
+
 /* Кнопка "Browse files" в загрузчике */
 [data-testid="stFileUploader"] button {
     background-color: #f0f0f0 !important;

@@ -49,8 +49,44 @@ LIGHT_CSS = """
 h1, h2, h3, h4, h5, h6, p, span, label {
     color: #111111 !important;
 }
+
+/* Кнопки: st.button, st.download_button и др. */
+.stButton > button, .stDownloadButton > button {
+    background-color: #f0f0f0 !important;
+    color: #111111 !important;
+    border: 1px solid #cccccc !important;
+    border-radius: 4px !important;
+}
+.stButton > button:hover, .stDownloadButton > button:hover {
+    background-color: #e0e0e0 !important;
+}
+
+/* Зона загрузки файлов */
+[data-testid="stFileUploaderDropzone"] {
+    background-color: #ffffff !important;
+    border: 1px dashed #999999 !important;
+    color: #111111 !important;
+}
+[data-testid="stFileUploaderDropzone"] * {
+    color: #111111 !important;
+}
+
+/* --- ДОПОЛНИТЕЛЬНО: делаем светлыми инпуты и таблицу --- */
+
+/* Обычные поля ввода (текст, числа, select и т.п.) */
+input, textarea, select {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+}
+
+/* Таблица st.data_editor / st.dataframe */
+[data-testid="stDataFrame"], [data-testid="stDataFrame"] div {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+}
 </style>
 """
+
 
 
 

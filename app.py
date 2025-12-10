@@ -112,6 +112,40 @@ input, textarea, select {
     background-color: #ffffff !important;
     color: #111111 !important;
 }
+/* Светлая таблица st.data_editor / st.dataframe */
+[data-testid="stDataFrame"] {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+}
+
+/* Само табличное полотно */
+[data-testid="stDataFrame"] table {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+    border-collapse: collapse !important;
+}
+
+/* Заголовок таблицы */
+[data-testid="stDataFrame"] thead tr {
+    background-color: #f0f0f0 !important;
+}
+[data-testid="stDataFrame"] th {
+    border: 1px solid #dddddd !important;
+    color: #111111 !important;
+}
+
+/* Строки таблицы */
+[data-testid="stDataFrame"] tbody tr {
+    background-color: #ffffff !important;
+}
+[data-testid="stDataFrame"] tbody tr:nth-child(even) {
+    background-color: #fafafa !important;  /* лёгкая полосатость */
+}
+
+[data-testid="stDataFrame"] td {
+    border: 1px solid #dddddd !important;
+    color: #111111 !important;
+}
 </style>
 """
 

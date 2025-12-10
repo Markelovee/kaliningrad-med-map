@@ -85,6 +85,16 @@ input, textarea, select {
     color: #111111 !important;
 }
 
+/* Границы таблицы st.data_editor / st.dataframe */
+[data-testid="stDataFrame"] table {
+    border-collapse: collapse !important;
+}
+
+[data-testid="stDataFrame"] th,
+[data-testid="stDataFrame"] td {
+    border: 1px solid #dddddd !important;
+}
+
 /* Кнопка "Browse files" в загрузчике */
 [data-testid="stFileUploader"] button {
     background-color: #f0f0f0 !important;
@@ -96,15 +106,6 @@ input, textarea, select {
     background-color: #e0e0e0 !important;
 }
 
-/* Границы таблицы st.data_editor / st.dataframe */
-[data-testid="stDataFrame"] table {
-    border-collapse: collapse !important;
-}
-
-[data-testid="stDataFrame"] th,
-[data-testid="stDataFrame"] td {
-    border: 1px solid #dddddd !important;
-}
 
 /* На всякий случай — фон и текст ещё раз для ясности */
 [data-testid="stDataFrame"] td {
